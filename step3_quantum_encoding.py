@@ -7,6 +7,7 @@ def create_quantum_encoding(n_features, encoding_type='angle'):
     wires = list(range(n_qubits))
     if encoding_type == 'angle':
         def encoding_function(x):
+            x = np.array(x[:n_qubits])  # Réduire la taille de x
             qml.AngleEmbedding(features=x, wires=wires, rotation='Y')
         print(f"Created AngleEmbedding with {n_qubits} qubits")
 

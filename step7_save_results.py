@@ -7,7 +7,7 @@ def save_results(metrics, predictions, times, y_test, output_dir, plots_dir):
     """
     Save model results, metrics, and plots.
     """
-    os.makedirs(output_dir, exist_ok=True)
+    os.makedirs("results", exist_ok=True)
     os.makedirs(plots_dir, exist_ok=True)
 
     # Save predictions
@@ -15,10 +15,10 @@ def save_results(metrics, predictions, times, y_test, output_dir, plots_dir):
     for model_name, preds in predictions.items():
         results_df[f'{model_name}_Predictions'] = preds
     results_df.to_csv(
-        os.path.join(output_dir, 'prediction_results.csv'),
+        os.path.join("results", 'prediction_results.csv'),
         index=False
     )
-    print(f"Saved prediction results to {output_dir}/prediction_results.csv")
+    print(f"Saved prediction results to {"results"}/prediction_results.csv")
 
     # Save metrics
     metric_rows = []
@@ -37,15 +37,15 @@ def save_results(metrics, predictions, times, y_test, output_dir, plots_dir):
                 row['Improvement (%)'] = (c_val - q_val) / c_val * 100
         metric_rows.append(row)
     metrics_df = pd.DataFrame(metric_rows)
-    metrics_df.to_csv(os.path.join(output_dir, 'qml_metrics.csv'), index=False)
-    print(f"Saved metrics to {output_dir}/qml_metrics.csv")
+    metrics_df.to_csv(os.path.join("results", 'qml_metrics.csv'), index=False)
+    print(f"Saved metrics to {"results"}/qml_metrics.csv")
 
     # Save times
     pd.DataFrame({
         'Model': list(times.keys()),
         'Prediction_Time_Seconds': list(times.values())
-    }).to_csv(os.path.join(output_dir, 'prediction_times.csv'), index=False)
-    print(f"Saved times to {output_dir}/prediction_times.csv")
+    }).to_csv(os.path.join("results", 'prediction_times.csv'), index=False)
+    print(f"Saved times to {"results"}/prediction_times.csv")
 
     # Accuracy plot for first model
     first_model = list(predictions.keys())[0]
