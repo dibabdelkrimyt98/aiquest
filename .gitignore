@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# VS Code
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+
+# Local model files and results
+models/
+results/
+plots/
+
+# Keep data directory but ignore large files
+data/*.csv
+data/*.json
