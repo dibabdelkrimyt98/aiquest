@@ -22,3 +22,5 @@ plots/
 # Keep data directory but ignore large files
 data/*.csv
 data/*.json
+*.csv
+*.

@@ -7,19 +7,7 @@ from sklearn.linear_model import LinearRegression
 def train_models(
     X_train, y_train, classical_output_dir, quantum_output_dir, qml_model=None
 ):
-    """
-    STEP 5: Train classical and quantum models.
-
-    Args:
-        X_train: Training features
-        y_train: Training targets
-        classical_output_dir: Directory to save classical model
-        quantum_output_dir: Directory to save quantum model
-        qml_model: Precompiled PennyLane quantum model (optional)
-
-    Returns:
-        models: Dictionary of trained models
-    """
+    
     models = {}
 
     # --- Classical Model: Linear Regression ---

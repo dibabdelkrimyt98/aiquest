@@ -2,6 +2,7 @@ import os
 import argparse
 
 # Import the steps we have implemented
+from create_model import QuantumModel
 from step1_load_data import load_data
 from step2_select_features import select_features
 from step3_quantum_encoding import create_quantum_encoding
